@@ -16,7 +16,7 @@ const priorityKeywordsArray = [
   ];  
 
     let users = [
-         { email: 'k.v.kuzemko@gmail.com' }, //Dodanie maili kadry zarządzajacej, product managerów i product ownerów
+         { email: 'k.v.kuzemko@gmail.com' }, 
     ];
 
 app.use(express.json());
@@ -278,7 +278,7 @@ app.post('/', async (req, res) => {
             let startAt = 0;
             const maxResults = 1000;
             
-            let jqlQuery = 'status != Done'; // zmień 'Done' na nazwę statusu oznaczającego gotowe zadania, jeśli jest inna
+            let jqlQuery = 'status != Done'; 
 
             let response = await fetch(`${jiraURL}/rest/api/3/search?jql=${encodeURIComponent(jqlQuery)}&maxResults=${maxResults}&startAt=${startAt}`, {
                 method: 'GET',
@@ -437,7 +437,7 @@ async function findDuplicates() {
         let startAt = 0;
         const maxResults = 1000;
         let duplicatedIssues = [];
-        let jqlQuery = 'status != Done'; // zmień 'Done' na nazwę statusu oznaczającego gotowe zadania, jeśli jest inna
+        let jqlQuery = 'status != Done'; 
 
         let response = await fetch(`${jiraURL}/rest/api/3/search?jql=${encodeURIComponent(jqlQuery)}&maxResults=${maxResults}&startAt=${startAt}`, {
             method: 'GET',
@@ -600,7 +600,7 @@ async function checkSubtasks(issueId, data) {
     //console.log(data.issue.fields.subtasks);
 
     if(data.issue.fields.status.name == "Gotowe"){
-        console.log('Zadanie ma juz gotowe');
+        console.log('Zadanie juz jest gotowe');
         return;
     }
 
